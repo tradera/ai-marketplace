@@ -101,7 +101,7 @@ Present to the user:
 
 You can now use these credentials with other Tradera skills:
   /tradera-publish {appId} {appKey} {userId} {authToken}
-  /tradera-delete <itemId> {appId} {appKey} {userId} {authToken}
+  /tradera-end-listing <itemId> {appId} {appKey} {userId} {authToken}
 ```
 
 **Important:** Tell the user to store the token securely. It grants API access to their account until it expires.

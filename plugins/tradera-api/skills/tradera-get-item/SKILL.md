@@ -1,5 +1,5 @@
 ---
-name: tradera-item
+name: tradera-get-item
 description: >
   Fetch and display details about a Tradera listing using the public REST API (v4).
   Use when the user wants to look up an item on Tradera by its item ID.
@@ -19,7 +19,7 @@ This skill needs **appId** and **appKey**. They can be provided via environment 
 - `TRADERA_APP_ID` — Tradera API application ID
 - `TRADERA_APP_KEY` — Tradera API application key
 
-**As arguments:** `/tradera-item <itemId> <appId> <appKey>`
+**As arguments:** `/tradera-get-item <itemId> <appId> <appKey>`
 
 ## Resolving Credentials
 

@@ -1,13 +1,13 @@
 ---
-name: tradera-delete
+name: tradera-end-listing
 description: >
-  End/delete an active listing on Tradera using the REST API (v4).
+  End an active listing on Tradera using the REST API (v4).
   Use when the user wants to take down, remove, or end a Tradera listing.
 argument-hint: "<itemId> [appId] [appKey] [userId] [userToken]"
 allowed-tools: ["Bash"]
 ---
 
-# Tradera Delete Listing
+# Tradera End Listing
 
 Ends an active listing on Tradera via `DELETE /v4/listings/items/{itemId}`.
 
@@ -21,7 +21,7 @@ This skill needs **appId**, **appKey**, **userId**, and **userToken**. They can 
 - `TRADERA_USER_ID` — Tradera user ID
 - `TRADERA_USER_TOKEN` — Tradera user authentication token
 
-**As arguments:** `/tradera-delete <itemId> <appId> <appKey> <userId> <userToken>`
+**As arguments:** `/tradera-end-listing <itemId> <appId> <appKey> <userId> <userToken>`
 
 ## Resolving Credentials
 
@@ -36,7 +36,7 @@ Before making any API calls, resolve credentials in this order:
 
 ### Step 1: Confirm with the user
 
-Before deleting, fetch the item details to show what will be deleted:
+Before ending, fetch the item details to show what will be ended:
 
 ```bash
 curl -s -w "\n%{http_code}" \
@@ -45,9 +45,9 @@ curl -s -w "\n%{http_code}" \
   "https://api.tradera.com/v4/items/{itemId}"
 ```
 
-Show the item title and ask the user to confirm deletion.
+Show the item title and ask the user to confirm.
 
-### Step 2: Delete the listing
+### Step 2: End the listing
 
 ```bash
 curl -s -w "\n%{http_code}" \
