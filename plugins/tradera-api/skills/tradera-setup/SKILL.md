@@ -93,16 +93,16 @@ After getting a user token, also add:
 ### What you can do now:
 
 **Look up items (app credentials only):**
-  /tradera-item <itemId>
+  /tradera-get-item <itemId>
 
-**Get a user token (needed for publishing/deleting):**
+**Get a user token (needed for publishing/ending listings):**
   /tradera-user-token
 
 **Publish a listing (needs user token):**
   /tradera-publish
 
-**Delete a listing (needs user token):**
-  /tradera-delete <itemId>
+**End a listing (needs user token):**
+  /tradera-end-listing <itemId>
 
 ### Rate limits
 The API allows 100 calls per 24 hours by default.

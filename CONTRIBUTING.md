@@ -52,7 +52,7 @@ Instructions for the AI assistant...
 ## Naming Conventions
 
 - Plugin names: lowercase, alphanumeric, hyphens only (e.g. `tradera-api`)
-- Skill names: lowercase, alphanumeric, hyphens only (e.g. `tradera-item`)
+- Skill names: lowercase, alphanumeric, hyphens only (e.g. `tradera-get-item`)
 - Skill files must be named `SKILL.md`
 
 ## Pull Requests

@@ -21,9 +21,9 @@ claude plugin install tradera-api@tradera-ai-marketplace
 |-------|-------------|-------------|
 | `/tradera-setup` | Register as a developer and create an API application | None |
 | `/tradera-user-token` | Obtain a user token via browser login | App credentials |
-| `/tradera-item <itemId>` | Look up a listing by ID | App credentials |
+| `/tradera-get-item <itemId>` | Look up a listing by ID | App credentials |
 | `/tradera-publish` | Create and publish a new listing | App + User credentials |
-| `/tradera-delete <itemId>` | End/remove an active listing | App + User credentials |
+| `/tradera-end-listing <itemId>` | End an active listing | App + User credentials |
 
 ## Authentication
 
@@ -32,7 +32,7 @@ Each Tradera API application has three credentials:
 - **App Key** (GUID, secret) — authenticates API calls
 - **Public Key** (GUID) — used in browser login URLs (less sensitive)
 
-Write operations (publish, delete) additionally require:
+Write operations (publish, end listing) additionally require:
 - **User ID** (integer) — your Tradera user ID
 - **User Token** (GUID) — obtained via `/tradera-user-token`
 
