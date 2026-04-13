@@ -1,0 +1,11 @@
+{
+  "name": "tradera-api",
+  "displayName": "Tradera API",
+  "version": "1.0.0",
+  "description": "Skills for interacting with the Tradera public REST API (v4).",
+  "author": {
+    "name": "Tradera"
+  },
+  "license": "MIT",
+  "keywords": ["tradera", "marketplace", "api", "e-commerce"]
+}

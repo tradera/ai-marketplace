@@ -1,0 +1,19 @@
+{
+  "name": "tradera-ai-marketplace",
+  "owner": {
+    "name": "Tradera",
+    "email": "developers@tradera.com"
+  },
+  "metadata": {
+    "description": "AI plugins for the Tradera marketplace — works with Claude Code and Cursor.",
+    "version": "1.0.0",
+    "pluginRoot": "plugins"
+  },
+  "plugins": [
+    {
+      "name": "tradera-api",
+      "source": "tradera-api",
+      "description": "Skills for interacting with the Tradera public REST API (v4)."
+    }
+  ]
+}
