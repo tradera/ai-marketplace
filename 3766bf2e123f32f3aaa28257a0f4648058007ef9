@@ -1,0 +1,40 @@
+plugins/tradera-api/skills/tradera-setup/SKILL.md
+  8088b70683479a12 98
+plugins/tradera-api/skills/tradera-end-listing/SKILL.md
+  8088b70683479a12 48,50
+plugins/tradera-api/README.md
+  8088b70683479a12 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "3766bf2e123f32f3aaa28257a0f4648058007ef9",
+  "prompts": {
+    "8088b70683479a12": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d004de2c-2917-4390-a755-2766deac3310",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Linus Sjöberg",
+      "messages": [],
+      "total_additions": 224,
+      "total_deletions": 4,
+      "accepted_lines": 373,
+      "overriden_lines": 2
+    },
+    "a6e50c6a481b0029": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "78ecdb3b-ffc2-4d4c-bbd2-3c7c0ab065ba",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Linus Sjöberg",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 481,
+      "overriden_lines": 2
+    }
+  }
+}
