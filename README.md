@@ -24,6 +24,12 @@ Add this repository as a marketplace in Cursor's plugin settings.
 |--------|-------------|
 | **[tradera-api](plugins/tradera-api/)** | Skills for interacting with the Tradera public REST API (v4) — look up items, publish listings, and manage active listings. |
 
+## Tradera API
+
+The included skills use the [Tradera REST API (v4)](https://api.tradera.com) at `api.tradera.com`. The API is open for anyone to use — register as a developer at [api.tradera.com/register](https://api.tradera.com/register) to get your credentials.
+
+The current skills cover the basics (item lookup, publishing, and deletion), but the API supports much more. You can build your own skills on top of it — see [CONTRIBUTING.md](CONTRIBUTING.md) for how to add new skills to this marketplace.
+
 ## Repository Structure
 
 ```
