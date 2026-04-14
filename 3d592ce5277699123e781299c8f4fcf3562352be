@@ -1,0 +1,23 @@
+README.md
+  f7e8845e095d384d 9-10,19-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "3d592ce5277699123e781299c8f4fcf3562352be",
+  "prompts": {
+    "f7e8845e095d384d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2af1df02-2e05-404d-b186-5769f963d5fb",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Linus Sjöberg",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 0,
+      "accepted_lines": 11,
+      "overriden_lines": 0
+    }
+  }
+}
