@@ -1,0 +1,25 @@
+plugins/tradera-api/.claude-plugin/plugin.json
+  f7e8845e095d384d 4
+plugins/tradera-api/.cursor-plugin/plugin.json
+  f7e8845e095d384d 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "040d880e3fc62df933faaf125665dfd13a7ce607",
+  "prompts": {
+    "f7e8845e095d384d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2af1df02-2e05-404d-b186-5769f963d5fb",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Linus Sjöberg",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
