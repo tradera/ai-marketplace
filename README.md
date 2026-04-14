@@ -6,12 +6,23 @@ AI plugins for the [Tradera](https://www.tradera.com) marketplace. Works with bo
 
 ### Claude Code
 
+**CLI**
+
 ```bash
 # Add the marketplace
 claude plugin marketplace add tradera/ai-marketplace
 
 # Install a plugin
 claude plugin install tradera-api@tradera-ai-marketplace
+```
+
+**Desktop app**
+
+Run these slash commands in any Claude Code session:
+
+```
+/plugin marketplace add tradera/ai-marketplace
+/plugin install tradera-api@tradera-ai-marketplace
 ```
 
 ### Cursor
