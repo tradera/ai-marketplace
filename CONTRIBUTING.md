@@ -55,6 +55,26 @@ Instructions for the AI assistant...
 - Skill names: lowercase, alphanumeric, hyphens only (e.g. `tradera-get-item`)
 - Skill files must be named `SKILL.md`
 
+## Versioning
+
+Every plugin is versioned with [semver](https://semver.org/). The version
+lives in **both** `.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json`
+and the two must stay in sync.
+
+**When you change a plugin, bump its version in the same commit** so existing
+users see the update available:
+
+- **Patch** (`1.2.0` → `1.2.1`) — bug fixes, doc-only changes, internal
+  refactors with no user-visible behavior change.
+- **Minor** (`1.2.0` → `1.3.0`) — additive, backwards-compatible changes:
+  new skills, new MCP tools, new hooks, new optional env vars.
+- **Major** (`1.2.0` → `2.0.0`) — breaking changes: renamed/removed
+  skills or tools, changed credential names, new hard runtime requirements
+  that would break existing users.
+
+Don't forget either manifest — if only one is bumped, Claude Code and Cursor
+users will end up on different versions of the same plugin.
+
 ## Pull Requests
 
 1. Fork the repo and create a feature branch.
