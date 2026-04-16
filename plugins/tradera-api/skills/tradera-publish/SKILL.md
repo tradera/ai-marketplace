@@ -42,7 +42,7 @@ Ask the user for the following (use AskUserQuestion or plain questions). Collect
 **Required:**
 - **Title** — short description / listing title (string)
 - **Description** — full item description (string, can contain HTML like `<br>`)
-- **Category ID** — Tradera category ID (integer). If the user doesn't know it, help them by suggesting they check tradera.com or provide a keyword to search for.
+- **Category ID** — Tradera category ID (integer). If the user doesn't know it, suggest running `/tradera-category <keyword>` to search by name.
 - **Start price** — opening bid in SEK (integer)
 - **Duration** — listing duration in days (integer, typically 1-10)
 
@@ -170,12 +170,26 @@ curl -s -w "\n%{http_code}" \
 
 ### Step 5: Confirm to the user
 
+Before printing the summary, resolve the category name so the user can verify
+it's the right one. Use the Tradera categories endpoint:
+
+```bash
+curl -s -H "X-App-Id: {appId}" -H "X-App-Key: {appKey}" \
+  "https://api.tradera.com/v4/categories" | head -c 50000
+```
+
+Walk the tree to find the `categoryId` and build the breadcrumb path (e.g.
+"Övrigt > Testauktioner > Endast för Tradera"). If the tree is too large to
+parse in one curl, the user can verify the category separately with
+`/tradera-category {categoryId}`.
+
 Present a summary:
 ```
 ## Listing Published
 
 **Title:** {title}
 **Item ID:** {itemId}
+**Category:** {categoryPath} ({categoryId})
 **Type:** {itemType name}
 **Start Price:** {startPrice} SEK
 **Duration:** {duration} days

@@ -22,6 +22,7 @@ claude plugin install tradera-api@tradera-ai-marketplace
 | `/tradera-setup` | One-stop setup & health check — diagnoses the environment and guides the user through whatever's missing (Node, credentials, dev-portal registration) | None |
 | `/tradera-user-token` | Obtain a user token via browser login | App credentials |
 | `/tradera-get-item <itemId>` | Look up a listing by ID | App credentials |
+| `/tradera-category <id or name>` | Look up categories by ID (→ breadcrumb path) or by name (→ matching IDs) | App credentials |
 | `/tradera-publish` | Create and publish a new listing (interactive) | App + User credentials |
 | `/tradera-publish-csv <file>` | Bulk-publish every row of a CSV (uses MCP) | App + User credentials |
 | `/tradera-end-listing <itemId>` | End an active listing | App + User credentials |
@@ -36,6 +37,7 @@ required — the server is a single zero-dependency Node 18+ script.
 Tools exposed:
 
 - `tradera_get_item`
+- `tradera_find_category` — look up category by ID (→ path) or search by name (→ matches). Cached per session.
 - `tradera_publish_listing` — create + upload images + commit in one call
 - `tradera_create_listing_request` / `tradera_upload_listing_image` / `tradera_commit_listing` (low-level)
 - `tradera_end_listing`

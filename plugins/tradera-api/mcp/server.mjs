@@ -122,6 +122,60 @@ async function endListing({ itemId }) {
   });
 }
 
+// ---------- category helpers ------------------------------------------------
+
+let categoryCache = null;
+
+async function fetchCategoryTree() {
+  if (categoryCache) return categoryCache;
+  categoryCache = await request("GET", "/categories", {
+    headers: appHeaders(),
+  });
+  return categoryCache;
+}
+
+function flattenTree(nodes, parentPath = []) {
+  const results = [];
+  for (const node of nodes) {
+    const path = [...parentPath, node.categoryName];
+    results.push({
+      categoryId: node.categoryId,
+      name: node.categoryName,
+      path: path.join(" > "),
+    });
+    if (Array.isArray(node.subCategories) && node.subCategories.length > 0) {
+      results.push(...flattenTree(node.subCategories, path));
+    }
+  }
+  return results;
+}
+
+async function findCategory({ categoryId, query }) {
+  const tree = await fetchCategoryTree();
+  const flat = flattenTree(Array.isArray(tree) ? tree : [tree]);
+
+  if (categoryId !== undefined && categoryId !== null) {
+    const match = flat.find((c) => c.categoryId === categoryId);
+    if (!match) {
+      throw new Error(`Category ID ${categoryId} not found in the tree.`);
+    }
+    return match;
+  }
+
+  if (typeof query === "string" && query.length > 0) {
+    const lower = query.toLowerCase();
+    const matches = flat.filter((c) => c.name.toLowerCase().includes(lower));
+    if (matches.length === 0) {
+      return { query, matches: [], message: "No categories matched." };
+    }
+    return { query, matches };
+  }
+
+  throw new Error(
+    "Provide either categoryId (integer) or query (string) to search by name."
+  );
+}
+
 // High-level convenience tool — the one a CSV-bulk workflow actually wants.
 //
 // Failure semantics are important for bulk callers: the `create` call is the
@@ -241,6 +295,31 @@ const TOOLS = [
       required: ["itemId"],
     },
     handler: getItem,
+  },
+  {
+    name: "tradera_find_category",
+    description:
+      "Look up Tradera categories. Two modes: (1) pass categoryId to get " +
+      "its full breadcrumb path (e.g. 344481 → 'Övrigt > Testauktioner > " +
+      "Endast för Tradera'), or (2) pass query to search category names and " +
+      "get a list of matches with IDs and paths. The category tree is cached " +
+      "for the lifetime of the server process.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        categoryId: {
+          type: "integer",
+          description: "Exact category ID to look up.",
+        },
+        query: {
+          type: "string",
+          description:
+            "Case-insensitive substring to search category names. " +
+            "Returns all matches with IDs and full paths.",
+        },
+      },
+    },
+    handler: findCategory,
   },
   {
     name: "tradera_publish_listing",

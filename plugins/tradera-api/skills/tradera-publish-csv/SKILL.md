@@ -6,7 +6,7 @@ description: >
   these items on Tradera"). Reads the CSV, maps columns to listing fields,
   dry-runs for confirmation, then calls the Tradera MCP server to publish.
 argument-hint: "<path-to-csv>"
-allowed-tools: ["Read", "mcp__tradera__tradera_publish_listing", "mcp__tradera__tradera_commit_listing", "mcp__tradera__tradera_get_item"]
+allowed-tools: ["Read", "mcp__tradera__tradera_publish_listing", "mcp__tradera__tradera_commit_listing", "mcp__tradera__tradera_get_item", "mcp__tradera__tradera_find_category"]
 ---
 
 # Tradera Bulk Publish from CSV
@@ -69,12 +69,16 @@ partial batch silently.
 
 ### Step 3: Dry-run summary
 
-Before publishing, show a short table:
+Before publishing, resolve each unique `categoryId` in the batch to its name
+and breadcrumb path by calling `tradera_find_category({ categoryId })`. This
+lets the user verify the categories are correct before any listings go live.
+
+Show a table that includes the category:
 
 ```
-Row | Title               | Price     | Duration | Images
-1   | Red wool sweater    | 50 SEK    | 7 days   | 2
-2   | Vintage lamp        | 200 SEK   | 10 days  | 0
+Row | Title            | Category                                  | Price   | Duration | Images
+1   | Red wool sweater | Kläder > Damkläder > Tröjor (34521)      | 50 SEK  | 7 days   | 2
+2   | Vintage lamp     | Hem & Inredning > Belysning (18432)      | 200 SEK | 10 days  | 0
 ...
 ```
 
